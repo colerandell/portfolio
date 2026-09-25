@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Step · Cole Randell</title>
+  <meta name="description" content="Case study: First Step, an AI tool that turns vague career tasks into one small step a day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="index.html">← Cole Randell</a>
+    <ul>
+      <li class="hide-sm"><a href="#problem">Problem</a></li>
+      <li class="hide-sm"><a href="#decisions">Design</a></li>
+      <li class="hide-sm"><a href="#positioning">Positioning</a></li>
+      <li><a href="https://getfirststep.vercel.app/">Try it ↗</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Case study</div>
+    <h1>First Step</h1>
+    <p class="tagline">Turning "work on my portfolio" into something you can start in 10 minutes.</p>
+
+    <p class="tldr">Career-focused students don't stall because they're lazy. They stall because their tasks are too vague to start. First Step breaks a vague task down the moment you add it and shows you <b>one</b> step a day. That first step is guaranteed to take 10 minutes or less.</p>
+
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Product lead: research, PRD, design and build</dd></div>
+      <div><dt>Timeline</dt><dd>Aug 2026 – now</dd></div>
+      <div><dt>Context</dt><dd>10-week vibe coding camp run by Sunny Sun, PM at Zoom</dd></div>
+      <div><dt>Built with</dt><dd>Claude Code, Vercel, Supabase, Anthropic API</dd></div>
+    </dl>
+
+    <div class="btns">
+      <a class="btn primary" href="https://getfirststep.vercel.app/">Try First Step ↗</a>
+      <a class="btn" href="https://github.com/colerandell/first-step">See the code ↗</a>
+    </div>
+  </section>
+
+  <!-- 1. PM angle -->
+  <section id="problem">
+    <div class="eyebrow">01 · Problem and research</div>
+    <h2>The big stuff kept sitting there</h2>
+
+    <p>I kept writing tasks too vague to start, like "work on portfolio." So I'd knock out the small, easy tasks instead and feel productive while the important work sat untouched. It happened a couple of times a week and led to rushed work, missed opportunities and stress.</p>
+    <p>Before building anything, I ran a personal workflow: an AI turned each vague task into one first step, I time-blocked it, and it came back in a daily morning brief. It worked for me. The question was whether it would work for anyone else.</p>
+
+    <h3 style="margin-top:32px">Who it's for</h3>
+    <p>Career-oriented students with self-directed, future-facing work (recruiting, applications, side projects) and no one telling them what to do next. The problem is worst during unstructured stretches like school breaks.</p>
+
+    <div class="stats">
+      <div class="fact"><b>15</b><span>people interviewed</span></div>
+      <div class="fact"><b>8</b><span>in the target niche</span></div>
+      <div class="fact"><b>4</b><span>competitors analyzed</span></div>
+      <div class="fact"><b>1</b><span>full PRD</span></div>
+    </div>
+
+    <h3 style="margin-top:32px">What I learned</h3>
+    <p>The interviews backed up the core idea: <b>task ambiguity, not a lack of time, is the core driver of procrastination</b> on this kind of work.</p>
+
+    <h3 style="margin-top:32px">Where existing tools fall short</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Tool</th><th>What it's great at</th><th>The gap</th></tr></thead>
+        <tbody>
+          <tr><td>Todoist, TickTick</td><td>Capturing and organizing lists</td><td>You still have to figure out how to start each task</td></tr>
+          <tr><td>Motion</td><td>Auto-scheduling tasks onto your calendar</td><td>Assumes each task is already clear enough to do</td></tr>
+          <tr><td>Sunsama</td><td>Guided daily planning</td><td>You do the breaking down yourself, every day</td></tr>
+          <tr class="us"><td>First Step</td><td>Breaking vague tasks into a first action</td><td>Shows one step a day, so there's no list to hide in</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 2. Product design angle -->
+  <section id="decisions">
+    <div class="eyebrow">02 · Design decisions</div>
+    <h2>Every choice fights the urge to stall</h2>
+
+    <div class="shots">
+      <!-- Screenshots: save phone screenshots as img/today.png, img/add-task.png and img/too-big.png,
+           then replace each <div class="slot"> with <img src="img/today.png" alt="..."> -->
+      <figure class="shot"><div class="slot">Screenshot: the Today screen with one step</div><figcaption>Today shows one step, never the whole list.</figcaption></figure>
+      <figure class="shot"><div class="slot">Screenshot: a clarifying question while adding a task</div><figcaption>One clarifying question before any steps.</figcaption></figure>
+      <figure class="shot"><div class="slot">Screenshot: "Still too big" splitting a step</div><figcaption>"Still too big" splits the step smaller.</figcaption></figure>
+    </div>
+
+    <div class="decision">
+      <h3>1. Break it down at capture, not later</h3>
+      <p><span class="label">Decision:</span> When you add a task, the AI asks one clarifying question and then writes the steps right away.</p>
+      <p><span class="label">Why:</span> The moment you write "apply to internships" is the moment you know the most about what you meant. Waiting until later is how vague tasks go stale.</p>
+    </div>
+
+    <div class="decision">
+      <h3>2. Show one step a day</h3>
+      <p><span class="label">Decision:</span> The Today tab shows a single step, never the full list.</p>
+      <p><span class="label">Why:</span> A list lets you pick the easiest item and call it progress, which is the exact behavior I was trying to fix. With one step, there's nothing to hide behind.</p>
+    </div>
+
+    <div class="decision">
+      <h3>3. The first step always takes 10 minutes or less</h3>
+      <p><span class="label">Decision:</span> This is the app's one hard rule. If the AI returns a first step longer than 10 minutes, the server has it split that step before the user ever sees it. Users can make the limit stricter (down to 2 minutes) but never looser.</p>
+      <p><span class="label">Why:</span> Getting started is the hardest part. I didn't want it to be a prompt suggestion the AI might ignore, so I made it a guarantee the product enforces.</p>
+    </div>
+
+    <div class="decision">
+      <h3>4. Give people a way out that isn't quitting</h3>
+      <p><span class="label">Decision:</span> Every step has three buttons: <b>Done</b>, <b>Still too big</b> (splits it into a first step of 5 minutes or less) and <b>Not today</b>.</p>
+      <p><span class="label">Why:</span> When a step feels too hard, people close the app. "Still too big" turns that moment into a smaller step instead of a lost user.</p>
+    </div>
+
+    <div class="decision">
+      <h3>5. A factual stakes line</h3>
+      <p><span class="label">Decision:</span> Each step can show a short, factual line about why it matters, with a setting to turn it off.</p>
+      <p><span class="label">Why:</span> A little urgency helps, but guilt makes people avoid the app. Keeping it factual and optional was the balance.</p>
+    </div>
+
+    <div class="decision">
+      <h3>6. Keep the user in control</h3>
+      <p><span class="label">Decision:</span> You can edit any step, regenerate the breakdown and choose how many steps a task gets.</p>
+      <p><span class="label">Why:</span> AI steps are a starting point, not orders. People trust the plan more when they can change it.</p>
+    </div>
+
+    <div class="decision">
+      <h3>7. Breaking my own PRD: calendar time-blocking</h3>
+      <p><span class="label">Decision:</span> My PRD scoped calendar features out. I added an "Add to Google Calendar" button anyway, and I'm updating the PRD to match.</p>
+      <p><span class="label">Why:</span> In my own workflow, turning a step into a time block was the real unlock. I kept it cheap: the button opens Google Calendar with the event already filled in, so the app didn't need a full calendar connection.</p>
+    </div>
+
+    <h3 style="margin-top:40px">What I cut</h3>
+    <ul>
+      <li><b>How-it-works slides.</b> I replaced them with a guided first task, so new users learn the app by using it on something real.</li>
+      <li><b>A full calendar integration.</b> A prefilled Google Calendar link gets most of the value with none of the permission prompts.</li>
+      <li><b>The full task list on Today.</b> It's still in the Tasks tab for when you need it, but it's never the default.</li>
+    </ul>
+  </section>
+
+  <!-- 3. PMM angle -->
+  <section id="positioning">
+    <div class="eyebrow">03 · Positioning and launch</div>
+    <h2>How I'd bring it to market</h2>
+
+    <p class="quote">"The work that moves you forward, one step at a time."</p>
+
+    <h3>Positioning</h3>
+    <p>For career-focused students who keep putting off the work that matters most, First Step is an AI task tool that turns any vague goal into one step you can start in 10 minutes. To-do apps show you everything at once. First Step shows you where to begin.</p>
+
+    <h3 style="margin-top:28px">Messaging</h3>
+    <ul>
+      <li><b>Start, don't plan.</b> You never face a blank page or a wall of tasks.</li>
+      <li><b>Small enough to say yes to.</b> Every first step takes 10 minutes or less, guaranteed.</li>
+      <li><b>Built for the long game.</b> It's for recruiting, applications and projects, not groceries.</li>
+    </ul>
+
+    <h3 style="margin-top:28px">Launch plan</h3>
+    <ul>
+      <li><b>Timing:</b> launch at the start of recruiting season, when "apply to internships" is on every student's list.</li>
+      <li><b>Channels:</b> career and consulting clubs, where one officer demo reaches a room of people with the exact problem.</li>
+      <li><b>Hook:</b> a live demo that turns a vague task someone in the room shouts out into a 10-minute first step.</li>
+      <li><b>What I'd measure:</b> the share of new users who finish their first step on day one, and how many come back to complete a second.</li>
+    </ul>
+  </section>
+
+  <section id="build">
+    <div class="eyebrow">How it's built</div>
+    <h2>Shipping it for real</h2>
+    <p>First Step started as a Claude artifact. I rebuilt it as a real web app with Claude Code and shipped it.</p>
+    <ul>
+      <li><b>Vercel</b> hosts the app and deploys every change I push to GitHub.</li>
+      <li><b>Anthropic API</b> writes the questions and steps. The API key and every prompt stay on the server, and the endpoint only accepts First Step's three requests, so nobody can use it for anything else.</li>
+      <li><b>Supabase</b> handles sign-up (email or Google) and syncs tasks across devices. Row-level security means each user can only ever see their own data.</li>
+      <li><b>Works at every level of setup.</b> With no AI key or database configured, the app still runs and saves in the browser, so a demo never breaks.</li>
+    </ul>
+  </section>
+
+  <section id="next">
+    <div class="eyebrow">What's next</div>
+    <h2>Where I'd take it</h2>
+    <ul>
+      <li><b>Morning brief:</b> send today's step in a daily brief, the way my original workflow did.</li>
+      <li><b>Nudges on stalled tasks:</b> notice when a task keeps getting "Not today" and offer to split it smaller.</li>
+      <li><b>Google Tasks sync:</b> meet people inside the tools they already use.</li>
+    </ul>
+    <div class="btns">
+      <a class="btn primary" href="https://getfirststep.vercel.app/">Try First Step ↗</a>
+      <a class="btn" href="index.html">← Back to portfolio</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Cole Randell · <a href="mailto:colerandell@g.ucla.edu">colerandell@g.ucla.edu</a> · <a href="https://www.linkedin.com/in/colerandell/">LinkedIn</a></div>
+</footer>
+
+</body>
+</html>
