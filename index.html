@@ -7,11 +7,12 @@
   <meta name="description" content="Cole Randell: product-minded builder at UCLA. Case studies, experience and resume.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
 <nav>
   <div class="wrap">
@@ -71,7 +72,7 @@
               <li>Wrote the PRD, designed the flows and shipped it on Vercel with Supabase accounts and the Anthropic API</li>
               <li>Built in a 10-week product camp run by a PM at Zoom</li>
             </ul>
-            <div class="work-tags">User research · PRD · AI product · Vercel · Supabase</div>
+            <div class="work-tags"><span>User research</span><span>PRD</span><span>AI product</span><span>Vercel</span><span>Supabase</span></div>
             <span class="link">Read the case study <span class="arr">→</span></span>
           </div>
         </a>
@@ -86,7 +87,7 @@
               <li>Scoped around the questions first-time buyers asked me during my brokerage work</li>
               <li>Built to reduce drop-off in a high-stakes purchase: save, compare and export scenarios</li>
             </ul>
-            <div class="work-tags">Real estate · React · Anthropic API</div>
+            <div class="work-tags"><span>Real estate</span><span>React</span><span>Anthropic API</span></div>
             <span class="link">View it live <span class="arr">↗</span></span>
           </div>
         </a>
@@ -233,14 +234,23 @@
   <div class="wrap"><span>© 2026 Cole Randell</span><span>Los Angeles, California</span></div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
-  // Fade sections in as they scroll into view
   (function () {
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Smooth, weighty scrolling (skipped if the library fails to load or motion is reduced)
+    if (!still && window.Lenis) {
+      var lenis = new Lenis({ lerp: 0.085, anchors: true });
+      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+    }
+
+    // Sections rise and unblur as they scroll into view
     var els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+    if (still || !("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -8% 0px" });
+    }, { rootMargin: "0px 0px -6% 0px" });
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
