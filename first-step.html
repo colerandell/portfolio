@@ -73,7 +73,23 @@
 
       <div class="read">
         <h3>What I learned</h3>
-        <p>The interviews backed up the core idea: <b>task ambiguity, not a lack of time, is the core driver of procrastination</b> on this kind of work.</p>
+        <ul class="lines">
+          <li><b>Unclear, not unwilling.</b> 7 of 8 people in the target group stalled because they didn’t know the first action, not because they didn’t want to do the task.</li>
+          <li><b>Everyone substitutes.</b> 8 of 8 did an easier task instead, and they knew it: <i>“I read more papers instead of writing, which feels like progress but isn’t.”</i> (PhD candidate)</li>
+          <li><b>Reminders aren’t the fix.</b> Only 1 of 8 said a reminder alone would have been enough. The breakdown itself carries the value.</li>
+          <li><b>They want less, not more.</b> <i>“Give me literally one thing to change first and I’ll do it. A whole redesign plan just overwhelms me.”</i> (Teacher)</li>
+        </ul>
+      </div>
+
+      <div class="figures three tight reveal">
+        <div class="figure"><b>2.1×</b><span>longer stall for tasks with no deadline: 43 days on average, vs 20 with one</span></div>
+        <div class="figure"><b>7 of 8</b><span>in the target group said they’d pay, vs 10 of 15 across everyone</span></div>
+        <div class="figure"><b>$5–10</b><span>a month is where willingness to pay clustered</span></div>
+      </div>
+
+      <div class="read">
+        <h3>The call: narrow the target</h3>
+        <p>I tested five hypotheses. The two core ones held for 10 of 15 people, and the same 5 people broke both: they already knew what to do and stalled for other reasons, like lack of time or avoidance. A breakdown tool can’t help them. So I cut them from the target and focused on the 8 working on career and school goals. The problem got sharper, willingness to pay went up, and the MVP stopped trying to serve a group it couldn’t help.</p>
       </div>
 
       <h3>Where existing tools fall short</h3>
@@ -81,7 +97,7 @@
         <table>
           <thead><tr><th>Tool</th><th>What it’s great at</th><th>The gap</th></tr></thead>
           <tbody>
-            <tr><td>Todoist, TickTick</td><td>Capturing and organizing lists</td><td>You still have to figure out how to start each task</td></tr>
+            <tr><td>Todoist, TickTick</td><td>Capturing and organizing lists; Todoist even has a breakdown feature</td><td>Breakdown is manual and opt-in, and nothing pushes work that has no deadline</td></tr>
             <tr><td>Motion</td><td>Auto-scheduling tasks onto your calendar</td><td>Assumes each task is already clear enough to do</td></tr>
             <tr><td>Sunsama</td><td>Guided daily planning</td><td>You do the breaking down yourself, every day</td></tr>
             <tr class="us"><td>First Step</td><td>Breaking vague tasks into a first action</td><td>Shows one step a day, so there’s no list to hide in</td></tr>
@@ -120,7 +136,7 @@
           <div>
             <h3>Show one step a day</h3>
             <p><span class="label">Decision</span>The Today tab shows a single step, never the full list.</p>
-            <p><span class="label">Why</span>A list lets you pick the easiest item and call it progress, which is the exact behavior I was trying to fix. With one step, there’s nothing to hide behind.</p>
+            <p><span class="label">Why</span>Several interviewees said the length of the list itself made them avoid it, and a list lets you pick the easiest item and call it progress. With one step, there’s nothing to hide behind. Tasks with no deadline get surfaced first, because they stall twice as long and nothing else is pushing them.</p>
           </div>
         </div>
 
@@ -145,9 +161,11 @@
         <div class="decision reveal">
           <div class="n">05</div>
           <div>
-            <h3>A factual stakes line</h3>
-            <p><span class="label">Decision</span>Each step can show a short, factual line about why it matters, with a setting to turn it off.</p>
-            <p><span class="label">Why</span>A little urgency helps, but guilt makes people avoid the app. Keeping it factual and optional was the balance.</p>
+            <h3>A stakes line with an honesty rule</h3>
+            <p><span class="label">Decision</span>Work with no deadline has nothing pushing it, so each step can show one line about what waiting has cost. The line can only do arithmetic on facts the user gave. It never predicts or scares.</p>
+            <p><span class="label">Good</span>“Applications close in 12 days. This has sat for 27.”</p>
+            <p><span class="label">Bad</span>“Your dream job is slipping away.”</p>
+            <p><span class="label">Why</span>This was my own bet, not something users asked for, and this audience is already anxious. So the step stays the headline and the cost is a footnote. The line ships behind a setting, and its opt-out rate is a guardrail metric.</p>
           </div>
         </div>
 
@@ -156,7 +174,7 @@
           <div>
             <h3>Keep the user in control</h3>
             <p><span class="label">Decision</span>You can edit any step, regenerate the breakdown and choose how many steps a task gets.</p>
-            <p><span class="label">Why</span>AI steps are a starting point, not orders. People trust the plan more when they can change it.</p>
+            <p><span class="label">Why</span>Trust was the hypothesis that broke. 3 of 8 in the target group rewrote most of the steps, and they were the ones already deep in Notion or their own systems. <i>“If it just says ‘research, outline, build’ that’s useless.”</i> (MBA student) Without editing, the strongest adopters would leave after one generic answer.</p>
           </div>
         </div>
 
@@ -176,6 +194,8 @@
           <li><b>How-it-works slides.</b> I replaced them with a guided first task, so new users learn the app by using it on something real.</li>
           <li><b>A full calendar integration.</b> A prefilled Google Calendar link gets most of the value with none of the permission prompts.</li>
           <li><b>The full task list on Today.</b> It’s still in the Tasks tab for when you need it, but it’s never the default.</li>
+          <li><b>Streaks and badges.</b> This audience already feels behind. A broken streak is one more failure to look at.</li>
+          <li><b>Projects, tags and folders.</b> My user’s problem isn’t organizing. It’s starting. Adding these would make a worse Todoist.</li>
         </ul>
       </div>
     </div>
@@ -205,7 +225,14 @@
           <li><b>Timing:</b> launch at the start of recruiting season, when “apply to internships” is on every student’s list.</li>
           <li><b>Channels:</b> career and consulting clubs, where one officer demo reaches a room of people with the exact problem.</li>
           <li><b>Hook:</b> a live demo that turns a vague task someone in the room shouts out into a 10-minute first step.</li>
-          <li><b>What I’d measure:</b> the share of new users who finish their first step on day one, and how many come back to complete a second.</li>
+        </ul>
+
+        <h3>How I’d measure success</h3>
+        <ul class="lines">
+          <li><b>Primary:</b> share of broken-down tasks where the user finishes the first step within 3 days. Target: 40% in the first month.</li>
+          <li><b>Secondary:</b> median days stalled on career and school tasks, down 30% by week 4.</li>
+          <li><b>The stakes-line test:</b> A/B test activation with the line shown vs hidden. If it doesn’t lift activation, cut it.</li>
+          <li><b>Guardrails:</b> fewer than 25% of users turn the stakes line off, and fewer than 40% of generated steps get rewritten.</li>
         </ul>
       </div>
     </div>
