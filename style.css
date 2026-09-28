@@ -145,7 +145,7 @@ a:hover .arr { transform: translateX(5px); }
 .hero .sub { max-width: 520px; }
 
 .arch {
-  aspect-ratio: 4 / 5; width: 100%; max-width: 400px; justify-self: end;
+  aspect-ratio: 1 / 1.06; width: 100%; max-width: 400px; justify-self: end;
   border-radius: 48% 52% 44% 56% / 54% 46% 54% 46%;
   overflow: hidden; display: grid; place-items: center;
   background: linear-gradient(150deg, #cfdaf0 0%, #a9bde4 45%, #1b2f5c 130%);
