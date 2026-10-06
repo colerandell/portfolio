@@ -283,7 +283,7 @@
 
     // Smooth, weighty scrolling (skipped if the library fails to load or motion is reduced)
     if (!still && window.Lenis) {
-      var lenis = new Lenis({ lerp: 0.085, anchors: true });
+      var lenis = new Lenis({ lerp: 0.14, anchors: true });
       (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
     }
 
