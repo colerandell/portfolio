@@ -360,3 +360,20 @@ tr.us td:first-child { color: var(--night-gold); }
 .year b { display: block; font: 800 24px/1.2 var(--round); color: var(--navy); margin: 8px 0 10px; }
 .year p { margin: 0; font-size: 15.5px; }
 @media (max-width: 760px) { .roadmap { grid-template-columns: 1fr; } }
+
+/* Work tabs and groups */
+.tabs { display: inline-flex; gap: 4px; padding: 5px; margin: 0 0 28px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line); box-shadow: var(--shadow); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.tab { border: 0; background: none; cursor: pointer; padding: 10px 22px; border-radius: 999px; font: 600 15px var(--sans); color: var(--ink-soft); transition: background .4s var(--ease), color .4s; }
+.tab:hover { color: var(--navy); }
+.tab[aria-selected="true"] { background: var(--navy); color: var(--cream); }
+.tab:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.group-head { margin: 36px 0 16px; }
+.group-head:first-child { margin-top: 8px; }
+.group-head h3 { font-size: 22px; margin-bottom: 4px; }
+.group-head p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.work:hover { transform: none; }
+.work-art { margin: 6px 0 20px; max-width: 640px; }
+.work-art img { width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--line); }
+.work-art figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.work li b { color: var(--navy); }
