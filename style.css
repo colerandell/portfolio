@@ -361,12 +361,7 @@ tr.us td:first-child { color: var(--night-gold); }
 .year p { margin: 0; font-size: 15.5px; }
 @media (max-width: 760px) { .roadmap { grid-template-columns: 1fr; } }
 
-/* Work tabs and groups */
-.tabs { display: inline-flex; gap: 4px; padding: 5px; margin: 0 0 28px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line); box-shadow: var(--shadow); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-.tab { border: 0; background: none; cursor: pointer; padding: 10px 22px; border-radius: 999px; font: 600 15px var(--sans); color: var(--ink-soft); transition: background .4s var(--ease), color .4s; }
-.tab:hover { color: var(--navy); }
-.tab[aria-selected="true"] { background: var(--navy); color: var(--cream); }
-.tab:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+/* Work groups */
 .group-head { margin: 36px 0 16px; }
 .group-head:first-child { margin-top: 8px; }
 .group-head h3 { font-size: 22px; margin-bottom: 4px; }
