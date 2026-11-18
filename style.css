@@ -488,3 +488,22 @@ html { background: #2b2824; }
 .photo-page .night::before, .photo-page .night::after { display: none; }
 .photo-page footer { background: rgba(22, 20, 17, 0.82); }
 .hero-photo .btn .arr { width: auto; height: auto; background: none; color: inherit; }
+
+/* ===== A different photo behind each section, crossfading as you scroll (index) ===== */
+.photo-page .blobs { display: none; }
+.bg-stack { position: fixed; inset: 0; z-index: -1; background: #2b2824; pointer-events: none; }
+.bg-stack .bg {
+  position: absolute; inset: 0; opacity: 0;
+  background: #2b2824 center / cover no-repeat;
+  transition: opacity 1.4s var(--ease);
+}
+.bg-stack .bg[data-for="top-hero"] { background-position: center 62%; }
+.bg-stack .bg.on { opacity: 1; }
+.bg-stack .veil {
+  position: absolute; inset: 0; opacity: 0;
+  background: linear-gradient(180deg, rgba(242, 238, 232, 0.84) 0%, rgba(233, 227, 218, 0.88) 100%);
+  transition: opacity 1.2s var(--ease);
+}
+.veil-on .bg-stack .veil { opacity: 1; }
+.photo-page .hero-bg { background: linear-gradient(180deg, rgba(18, 16, 14, 0.5) 0%, rgba(18, 16, 14, 0.15) 38%, rgba(18, 16, 14, 0.05) 60%, rgba(18, 16, 14, 0.45) 100%); }
+@media (prefers-reduced-motion: reduce) { .bg-stack .bg, .bg-stack .veil { transition: none; } }
