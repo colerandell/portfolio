@@ -507,3 +507,21 @@ html { background: #2b2824; }
 .veil-on .bg-stack .veil { opacity: 1; }
 .photo-page .hero-bg { background: linear-gradient(180deg, rgba(18, 16, 14, 0.5) 0%, rgba(18, 16, 14, 0.15) 38%, rgba(18, 16, 14, 0.05) 60%, rgba(18, 16, 14, 0.45) 100%); }
 @media (prefers-reduced-motion: reduce) { .bg-stack .bg, .bg-stack .veil { transition: none; } }
+
+/* ===== Full photos behind every section: no cream wash, light text, solid cards ===== */
+.photo-page .bg-stack .veil { background: linear-gradient(180deg, rgba(16, 14, 12, 0.42) 0%, rgba(16, 14, 12, 0.32) 50%, rgba(16, 14, 12, 0.45) 100%); }
+.photo-page #about, .photo-page #work, .photo-page #experience, .photo-page #skills { --on-photo: #f6f1ea; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35); }
+.photo-page :is(#about, #work, #experience, #skills) h2,
+.photo-page :is(#about, #work, #experience, #skills) .group-head h3,
+.photo-page #about .about-text,
+.photo-page #experience .job h3 { color: var(--on-photo); }
+.photo-page :is(#about, #work, #experience, #skills) h2 em { background: linear-gradient(100deg, #f1e4d2 0%, #d9bf9c 60%, #c4a37c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.photo-page :is(#about, #work, #experience, #skills) .kicker { color: #e6d3b8; }
+.photo-page :is(#about, #work, #experience, #skills) .kicker span { background: #f6f1ea; color: #2a2723; text-shadow: none; }
+.photo-page :is(#work) .group-head p { color: rgba(246, 241, 234, 0.8); }
+.photo-page #experience .job { border-color: rgba(255, 255, 255, 0.18); }
+.photo-page #experience .job .when, .photo-page #experience .job h3 small { color: rgba(246, 241, 234, 0.72); }
+.photo-page #experience .job .org { color: #e6d3b8; }
+.photo-page #experience .job li { color: #efe8dd; }
+/* Cards stay light and solid so their text reads cleanly over any photo */
+.photo-page :is(.work, .figure, .skills > div) { background: rgba(250, 248, 244, 0.93); text-shadow: none; }

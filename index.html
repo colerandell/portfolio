@@ -9,20 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="slides.css">
+  <script>document.documentElement.classList.add("js", "slides-page")</script>
 </head>
 <body>
-<div class="blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-<div class="bg-stack" aria-hidden="true">
-  <div class="bg on" data-for="top-hero" style="background-image:url(img/hero.jpg)"></div>
-  <div class="bg" data-for="about" data-src="img/bg-about.jpg"></div>
-  <div class="bg" data-for="work" data-src="img/bg-work.jpg"></div>
-  <div class="bg" data-for="experience" data-src="img/bg-experience.jpg"></div>
-  <div class="bg" data-for="skills" data-src="img/bg-skills.jpg"></div>
-  <div class="bg" data-for="contact" data-src="img/bg-contact.jpg"></div>
-  <div class="veil"></div>
-</div>
 
+<!-- One building, seen from a different angle on each slide. The backdrop crossfades as slides change. -->
+<div class="stage" aria-hidden="true">
+  <div class="shot on" data-bg="hero" style="background-image:url(img/hero.jpg)"></div>
+  <div class="shot" data-bg="about" data-src="img/s-about.jpg"></div>
+  <div class="shot" data-bg="firststep" data-src="img/s-firststep.jpg"></div>
+  <div class="shot" data-bg="realcost" data-src="img/s-realcost.jpg"></div>
+  <div class="shot" data-bg="poogle" data-src="img/s-poogle.jpg"></div>
+  <div class="shot" data-bg="experience" data-src="img/s-experience.jpg"></div>
+  <div class="shot" data-bg="skills" data-src="img/s-skills.jpg"></div>
+  <div class="shot dark" data-bg="contact" data-src="img/hero.jpg"></div>
+</div>
 
 <nav>
   <div class="wrap">
@@ -36,11 +38,10 @@
   </div>
 </nav>
 
-<main id="top">
+<main class="slides">
 
-  <section class="hero-photo" id="top-hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
+  <section class="slide slide-hero" id="top" data-bg="hero">
+    <div class="hero-copy">
       <h1>Cole <em>Randell</em></h1>
       <p class="lede">Every day is a chance to grow. You just have to take it.</p>
       <div class="btns">
@@ -52,272 +53,150 @@
     <p class="photo-credit">Image: <a href="https://unsplash.com/photos/modern-building-with-people-walking-by-the-water-0iUkT3zDftg">Chamfjord on Unsplash</a></p>
   </section>
 
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker reveal"><span>hi.</span>About</div>
-          <p class="about-text reveal">I'm a junior at UCLA studying Business Economics and Computer Science. I got my California real estate license in 2026 and grew Foothill Consulting into the biggest club at Foothill College in one quarter. I'm most drawn to finding creative new ways to use AI, and to building the products that come out of them.</p>
-        </div>
-        <div class="arch reveal"><img src="img/cole.jpg" alt="Cole Randell" width="800" height="800"></div>
+  <section class="slide" id="about" data-bg="about">
+    <div class="panel left">
+      <div class="kicker"><span>hi.</span>About</div>
+      <div class="about-row">
+        <img class="headshot" src="img/cole.jpg" alt="Cole Randell" width="800" height="800">
+        <p class="about-text">I'm a junior at UCLA studying Business Economics and Computer Science. I got my California real estate license in 2026 and grew Foothill Consulting into the biggest club at Foothill College in one quarter. I'm most drawn to finding creative new ways to use AI, and to building the products that come out of them.</p>
       </div>
-
-      <div class="figures reveal">
-        <div class="figure"><b>UCLA ’28</b><span>Business Economics and Computer Science</span></div>
-        <div class="figure"><b>15</b><span>user interviews behind First Step</span></div>
-        <div class="figure"><b>2<em>/72</em></b><span>Google &amp; Foothill College Case Competition</span></div>
-        <div class="figure"><b><em>Licensed</em></b><span>California real estate, DRE #02414776</span></div>
+      <div class="stats">
+        <div><b>UCLA ’28</b><span>Business Economics and Computer Science</span></div>
+        <div><b>15</b><span>user interviews behind First Step</span></div>
+        <div><b>2<em>/72</em></b><span>Google &amp; Foothill College Case Competition</span></div>
+        <div><b><em>Licensed</em></b><span>California real estate, DRE #02414776</span></div>
       </div>
     </div>
   </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="kicker reveal"><span>i.</span>Selected work</div>
-      <h2 class="reveal">What I’ve <em>built</em></h2>
-
-      <div class="group-head reveal">
-        <h3>Products</h3>
-        <p>Live products you can try yourself.</p>
-      </div>
-
-      <div class="work reveal">
-        <div class="work-num">01</div>
-        <div>
-          <div class="work-meta">Product lead · Aug 2026 – Present</div>
-          <h3>First Step</h3>
-          <p>An AI task tool for career-focused students. It turns a vague goal like “apply to internships” into one step you can start today, and it guarantees that first step takes 10 minutes or less.</p>
-          <ul>
-            <li>15 user interviews and a competitive analysis of Todoist, Motion, Sunsama and TickTick</li>
-            <li>Wrote the PRD, designed the flows and shipped it on Vercel with Supabase accounts and the Anthropic API</li>
-            <li>Got mentorship and product feedback from a PM at Zoom</li>
-          </ul>
-          <div class="work-tags"><span>User research</span><span>PRD</span><span>AI product</span><span>Vercel</span><span>Supabase</span></div>
-          <div class="card-actions">
-            <a class="btn solid" href="https://getfirststep.vercel.app/">Try First Step <span class="arr">↗</span></a>
-            <a class="btn" href="first-step.html">Read the case study <span class="arr">→</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="work reveal">
-        <div class="work-num">02</div>
-        <div>
-          <div class="work-meta">Built · Mar – Apr 2026 · Real estate</div>
-          <h3>RealCost</h3>
-          <p>A home-buying tool that shows what a house really costs: the all-in monthly payment and the cash needed at closing, including the maintenance, tax and insurance costs most calculators leave out, with a plain-English verdict and next step.</p>
-          <ul>
-            <li>Built for buyers, not brokers: broker software is complex, and buyers mostly hear the numbers secondhand</li>
-            <li>Scoped around the questions first-time buyers asked me during my brokerage work</li>
-          </ul>
-          <div class="work-tags"><span>Real estate</span><span>React</span><span>Anthropic API</span><span>Lovable</span></div>
-          <div class="card-actions">
-            <a class="btn solid" href="https://realcost.lovable.app">Try RealCost <span class="arr">↗</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="group-head reveal">
-        <h3>Case competitions</h3>
-        <p>Strategy and analysis write-ups.</p>
-      </div>
-
-      <div class="work reveal">
-        <div class="work-num">03</div>
-        <div>
-          <div class="work-meta">Case competition · Nov 2024 · 2nd of 72 teams</div>
-          <h3 class="wordmark" aria-label="Poogle"><span>P</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></h3>
-          <p>A smart toilet device that uses sensors and AI to catch early signs of digestive disease in adults over 65. We placed 2nd of 72 teams (400+ participants) at the Case Competition hosted by Google &amp; Foothill College.</p>
-          <div class="work-tags"><span>Case competition</span><span>Market sizing</span><span>Health tech</span><span>Pitch</span></div>
-          <div class="card-actions">
-            <a class="btn solid" href="poogle.html">Read the case study <span class="arr">→</span></a>
-          </div>
-        </div>
+  <section class="slide" id="work" data-bg="firststep">
+    <div class="panel right">
+      <div class="kicker"><span>01</span>Product · Aug 2026 – Present</div>
+      <h2>First Step</h2>
+      <p>An AI task tool for career-focused students. It turns a vague goal like “apply to internships” into one step you can start today, and it guarantees that first step takes 10 minutes or less.</p>
+      <ul class="points">
+        <li>15 user interviews and a competitive analysis of Todoist, Motion, Sunsama and TickTick</li>
+        <li>Wrote the PRD, designed the flows and shipped it on Vercel with Supabase accounts and the Anthropic API</li>
+        <li>Got mentorship and product feedback from a PM at Zoom</li>
+      </ul>
+      <div class="work-tags"><span>User research</span><span>PRD</span><span>AI product</span><span>Vercel</span><span>Supabase</span></div>
+      <div class="btns">
+        <a class="btn solid" href="https://getfirststep.vercel.app/">Try First Step <span class="arr">↗</span></a>
+        <a class="btn" href="first-step.html">Read the case study <span class="arr">→</span></a>
       </div>
     </div>
   </section>
 
-  <section id="experience">
-    <div class="wrap">
-      <div class="kicker reveal"><span>ii.</span>Experience</div>
-      <h2 class="reveal">Where I’ve <em>worked</em></h2>
+  <section class="slide" id="realcost" data-bg="realcost">
+    <div class="panel left">
+      <div class="kicker"><span>02</span>Product · Mar – Apr 2026</div>
+      <h2>RealCost</h2>
+      <p>A home-buying tool that shows what a house really costs: the all-in monthly payment and the cash needed at closing, including the maintenance, tax and insurance costs most calculators leave out, with a plain-English verdict and next step.</p>
+      <ul class="points">
+        <li>Built for buyers, not brokers: broker software is complex, and buyers mostly hear the numbers secondhand</li>
+        <li>Scoped around the questions first-time buyers asked me during my brokerage work</li>
+      </ul>
+      <div class="work-tags"><span>Real estate</span><span>React</span><span>Anthropic API</span><span>Lovable</span></div>
+      <div class="btns">
+        <a class="btn solid" href="https://realcost.lovable.app">Try RealCost <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </section>
 
-      <div>
-        <div class="job reveal">
-          <div class="when caps">Feb – Aug 2026</div>
-          <div>
-            <h3>Project Management Intern</h3>
-            <div class="org">Vabrato Real Estate, San Carlos</div>
-            <ul>
-              <li>Mapped the buyer and seller journey from client feedback and turned recurring friction into prioritized process changes adopted across the brokerage.</li>
-              <li>Owned a 400+ subscriber newsletter: defined engagement metrics and ran A/B tests on creative and send timing.</li>
-              <li>Drove go-to-market for a $9.8M listing, aligning marketing, design, legal and vendors on one launch timeline.</li>
-              <li>Earned my California real estate license (DRE #02414776) and built internal AI tools for the team.</li>
-            </ul>
-          </div>
+  <section class="slide" id="poogle" data-bg="poogle">
+    <div class="panel right">
+      <div class="kicker"><span>03</span>Case competition · Nov 2024</div>
+      <h2 class="wordmark" aria-label="Poogle"><span>P</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></h2>
+      <p>A smart toilet device that uses sensors and AI to catch early signs of digestive disease in adults over 65. We placed <b>2nd of 72 teams</b> (400+ participants) at the Case Competition hosted by Google &amp; Foothill College.</p>
+      <div class="work-tags"><span>Case competition</span><span>Market sizing</span><span>Health tech</span><span>Pitch</span></div>
+      <div class="btns">
+        <a class="btn solid" href="poogle.html">Read the case study <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="experience" data-bg="experience">
+    <div class="panel left wide">
+      <div class="kicker"><span>ii.</span>Experience</div>
+      <h2>Where I’ve <em>worked</em></h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="when">Feb – Aug 2026</div>
+          <div><h3>Project Management Intern</h3><div class="org">Vabrato Real Estate, San Carlos</div>
+          <p>Drove go-to-market for a $9.8M listing, mapped the buyer and seller journey into process changes, and earned my real estate license.</p></div>
         </div>
-
-        <div class="job reveal">
-          <div class="when caps">Sept 2024 – Oct 2025</div>
-          <div>
-            <h3>Project Management Intern <small>promoted from M&amp;A Research Intern</small></h3>
-            <div class="org">Evergreen M&amp;A, Remote</div>
-            <ul>
-              <li>Led a team of analysts across concurrent engagements, setting scope, requirements and delivery milestones.</li>
-              <li>Directed market and competitive research on acquisition targets; recommendations were adopted by senior stakeholders.</li>
-              <li>Built revenue, cash flow and valuation models for sell-side clients with $5M–$50M enterprise values.</li>
-            </ul>
-          </div>
+        <div class="entry">
+          <div class="when">Sept 2024 – Oct 2025</div>
+          <div><h3>Project Management Intern</h3><div class="org">Evergreen M&amp;A, Remote · promoted from M&amp;A Research Intern</div>
+          <p>Led a team of analysts across concurrent deals and built valuation models for $5M–$50M sell-side clients.</p></div>
         </div>
-
-        <div class="job reveal">
-          <div class="when caps">2024 – 2025</div>
-          <div>
-            <h3>Founder &amp; Co-President</h3>
-            <div class="org">Foothill Consulting, Foothill College</div>
-            <ul>
-              <li>Grew it into the biggest club at Foothill College in one quarter.</li>
-              <li>Ran a free campus-wide LinkedIn headshot event.</li>
-            </ul>
-          </div>
+        <div class="entry">
+          <div class="when">2024 – 2025</div>
+          <div><h3>Founder &amp; Co-President</h3><div class="org">Foothill Consulting, Foothill College</div>
+          <p>Grew it into the biggest club on campus in one quarter.</p></div>
         </div>
-
-        <div class="job reveal">
-          <div class="when caps">Education</div>
-          <div>
-            <h3>University of California, Los Angeles</h3>
-            <div class="org">Business Economics and Computer Science · College Honors</div>
-            <p class="muted" style="font-size:16px;margin:0">Expected Graduation Date: June 2028</p>
-          </div>
+        <div class="entry">
+          <div class="when">Education</div>
+          <div><h3>University of California, Los Angeles</h3><div class="org">Business Economics and Computer Science · College Honors</div>
+          <p>Expected Graduation Date: June 2028</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="wrap">
-      <div class="kicker reveal"><span>iii.</span>Capabilities</div>
-      <h2 class="reveal">What I <em>bring</em></h2>
-      <div class="skills reveal">
-        <div>
-          <h3>Product</h3>
-          <ul>
-            <li>User interviews</li>
-            <li>PRDs and scoping</li>
-            <li>Success metrics and roadmaps</li>
-            <li>Competitive analysis and market sizing</li>
-            <li>A/B testing and experiment design</li>
-            <li>Go-to-market planning</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Building &amp; shipping</h3>
-          <ul>
-            <li><b>Vercel</b>: deploys from GitHub, serverless functions</li>
-            <li><b>Supabase</b>: auth, Postgres, row-level security</li>
-            <li><b>Anthropic API</b>: prompt design, structured outputs</li>
-            <li>Git and GitHub</li>
-            <li>HTML, CSS, JavaScript, React</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Data &amp; analysis</h3>
-          <ul>
-            <li>SQL, Python</li>
-            <li>Excel financial modeling</li>
-            <li>Market and pricing research</li>
-          </ul>
-        </div>
-        <div>
-          <h3>AI tools</h3>
-          <ul>
-            <li>Claude and Claude Code</li>
-            <li>ChatGPT</li>
-            <li>Lovable</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Languages</h3>
-          <ul>
-            <li>English</li>
-            <li>Spanish</li>
-            <li>Vietnamese</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Beyond work</h3>
-          <ul>
-            <li>Golf, pickleball and the gym</li>
-            <li>Value investing</li>
-            <li>Travel and volunteering</li>
-          </ul>
-        </div>
+  <section class="slide" id="skills" data-bg="skills">
+    <div class="panel right wide">
+      <div class="kicker"><span>iii.</span>Capabilities</div>
+      <h2>What I <em>bring</em></h2>
+      <div class="skill-grid">
+        <div><h3>Product</h3><p>User interviews · PRDs and scoping · Success metrics and roadmaps · Competitive analysis and market sizing · A/B testing · Go-to-market</p></div>
+        <div><h3>Building &amp; shipping</h3><p>Vercel · Supabase · Anthropic API · Git and GitHub · HTML, CSS, JavaScript, React</p></div>
+        <div><h3>Data &amp; analysis</h3><p>SQL, Python · Excel financial modeling · Market and pricing research</p></div>
+        <div><h3>AI tools</h3><p>Claude and Claude Code · ChatGPT · Lovable</p></div>
+        <div><h3>Languages</h3><p>English · Spanish · Vietnamese</p></div>
+        <div><h3>Beyond work</h3><p>Golf, pickleball and the gym · Value investing · Travel and volunteering</p></div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="night">
-    <div class="wrap">
-      <div class="kicker reveal"><span>iv.</span>Contact</div>
-      <h2 class="reveal">Let’s <em>talk.</em></h2>
-      <p class="read reveal">I’m looking for Summer 2027 product internships and always happy to talk about AI products, real estate tech or anything I’ve built here.</p>
-      <a class="big-mail reveal" href="mailto:colerandell@g.ucla.edu">colerandell@g.ucla.edu</a>
-      <div class="btns reveal">
+  <section class="slide" id="contact" data-bg="contact">
+    <div class="panel dark center">
+      <div class="kicker"><span>iv.</span>Contact</div>
+      <h2>Let’s <em>talk.</em></h2>
+      <p>I’m looking for Summer 2027 product internships and always happy to talk about AI products, real estate tech or anything I’ve built here.</p>
+      <a class="big-mail" href="mailto:colerandell@g.ucla.edu">colerandell@g.ucla.edu</a>
+      <div class="btns">
         <a class="btn solid" href="https://www.linkedin.com/in/colerandell/">LinkedIn <span class="arr">↗</span></a>
         <a class="btn" href="Cole_Randell_Resume.pdf">Resume</a>
       </div>
     </div>
+    <footer class="slide-footer"><span>© 2026 Cole Randell</span><span>Los Angeles, California</span></footer>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap"><span>© 2026 Cole Randell</span><span>Los Angeles, California</span></div>
-</footer>
-
 <script>
-  // Each section has its own photo. The fixed backdrop crossfades to the photo of
-  // whichever section crosses the middle of the screen, so it flows section to section.
+  // Slides: the slide crossing the middle of the screen becomes active. Its photo
+  // crossfades in behind it and its panel fades up.
   (function () {
-    var root = document.documentElement; root.classList.add("photo-page");
-    var layers = [].slice.call(document.querySelectorAll(".bg-stack .bg"));
-    var sections = layers.map(function (l) { return document.getElementById(l.dataset.for); });
-    var dark = { "top-hero": true, "contact": true }, current = "top-hero", ticking = false;
+    var slides = [].slice.call(document.querySelectorAll(".slide"));
+    var shots = {}; [].forEach.call(document.querySelectorAll(".stage .shot"), function (s) { shots[s.dataset.bg] = s; });
+    var current = null, ticking = false;
     window.addEventListener("load", function () {
-      layers.forEach(function (l) { if (l.dataset.src) l.style.backgroundImage = "url(" + l.dataset.src + ")"; });
+      Object.keys(shots).forEach(function (k) { var s = shots[k]; if (s.dataset.src) s.style.backgroundImage = "url(" + s.dataset.src + ")"; });
     });
     function update() {
       ticking = false;
-      var mid = window.innerHeight * 0.5, active = current;
-      sections.forEach(function (sec) { if (sec && sec.getBoundingClientRect().top <= mid) active = sec.id; });
-      if (active === current) return;
-      current = active;
-      layers.forEach(function (l) { l.classList.toggle("on", l.dataset.for === active); });
-      root.classList.toggle("veil-on", !dark[active]);
+      var mid = window.innerHeight / 2, best = slides[0];
+      slides.forEach(function (sl) { if (sl.getBoundingClientRect().top <= mid) best = sl; });
+      if (best === current) return;
+      current = best;
+      slides.forEach(function (sl) { sl.classList.toggle("active", sl === best); });
+      Object.keys(shots).forEach(function (k) { shots[k].classList.toggle("on", k === best.dataset.bg); });
     }
     window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     window.addEventListener("resize", update);
-    current = ""; update();
-  })();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script>
-  (function () {
-    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Smooth, weighty scrolling (skipped if the library fails to load or motion is reduced)
-    if (!still && window.Lenis) {
-      var lenis = new Lenis({ lerp: 0.14, anchors: true });
-      (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
-    }
-
-    // Sections rise and unblur as they scroll into view
-    var els = document.querySelectorAll(".reveal");
-    if (still || !("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -6% 0px" });
-    els.forEach(function (e) { io.observe(e); });
+    update();
   })();
 </script>
 </body>
