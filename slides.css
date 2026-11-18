@@ -188,3 +188,27 @@ html.slides-page { scroll-snap-type: y mandatory; background: #1e1c19; }
 }
 .slides-page nav ul a:hover { background: none; color: #fff; }
 .slides-page.scrolled nav .wrap { background: rgba(20, 18, 16, 0.38); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+/* ===== Stacked cards instead of fades: each slide carries its own photo and slides up over the last ===== */
+.stage { display: none; }
+.slide {
+  position: sticky; top: 0;
+  background: #1e1c19 center / cover no-repeat;
+  box-shadow: 0 -24px 50px -10px rgba(0, 0, 0, 0.45);
+  isolation: isolate;
+}
+.slide::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14, 12, 10, 0.28) 0%, rgba(14, 12, 10, 0) 30%, rgba(14, 12, 10, 0) 70%, rgba(14, 12, 10, 0.3) 100%); }
+#top { background-image: url("img/hero.jpg"); background-position: center 62%; box-shadow: none; }
+#top::before { background: linear-gradient(180deg, rgba(18, 16, 14, 0.5) 0%, rgba(18, 16, 14, 0.15) 38%, rgba(18, 16, 14, 0.05) 60%, rgba(18, 16, 14, 0.45) 100%), radial-gradient(ellipse 55% 42% at 50% 34%, rgba(14, 12, 10, 0.42) 0%, rgba(14, 12, 10, 0) 100%); }
+#about { background-image: url("img/s-about.jpg"); }
+#work { background-image: url("img/s-firststep.jpg"); }
+#realcost { background-image: url("img/s-realcost.jpg"); }
+#poogle { background-image: url("img/s-poogle.jpg"); }
+#experience { background-image: url("img/s-experience.jpg"); }
+#skills { background-image: url("img/s-skills.jpg"); }
+#contact { background-image: url("img/hero.jpg"); }
+#contact::before { background: rgba(14, 12, 10, 0.55); }
+/* Panels are always visible: no fade-in */
+.panel, .slide.active .panel { opacity: 1; transform: none; transition: none; }
+/* Phones and short screens: normal stacking so tall slides never get covered */
+@media (max-width: 760px), (max-height: 640px) { .slide { position: relative; box-shadow: none; } }

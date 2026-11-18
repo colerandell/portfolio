@@ -14,17 +14,6 @@
 </head>
 <body>
 
-<!-- One building, seen from a different angle on each slide. The backdrop crossfades as slides change. -->
-<div class="stage" aria-hidden="true">
-  <div class="shot on" data-bg="hero" style="background-image:url(img/hero.jpg)"></div>
-  <div class="shot" data-bg="about" data-src="img/s-about.jpg"></div>
-  <div class="shot" data-bg="firststep" data-src="img/s-firststep.jpg"></div>
-  <div class="shot" data-bg="realcost" data-src="img/s-realcost.jpg"></div>
-  <div class="shot" data-bg="poogle" data-src="img/s-poogle.jpg"></div>
-  <div class="shot" data-bg="experience" data-src="img/s-experience.jpg"></div>
-  <div class="shot" data-bg="skills" data-src="img/s-skills.jpg"></div>
-  <div class="shot dark" data-bg="contact" data-src="img/hero.jpg"></div>
-</div>
 
 <nav>
   <div class="wrap">
@@ -188,27 +177,11 @@
 </main>
 
 <script>
-  // Slides: the slide crossing the middle of the screen becomes active. Its photo
-  // crossfades in behind it and its panel fades up.
+  // Nav gets a faint strip once you leave the first slide
   (function () {
-    var slides = [].slice.call(document.querySelectorAll(".slide"));
-    var shots = {}; [].forEach.call(document.querySelectorAll(".stage .shot"), function (s) { shots[s.dataset.bg] = s; });
-    var current = null, ticking = false;
-    window.addEventListener("load", function () {
-      Object.keys(shots).forEach(function (k) { var s = shots[k]; if (s.dataset.src) s.style.backgroundImage = "url(" + s.dataset.src + ")"; });
-    });
-    function update() {
-      ticking = false;
-      var mid = window.innerHeight / 2, best = slides[0];
-      slides.forEach(function (sl) { if (sl.getBoundingClientRect().top <= mid) best = sl; });
-      document.documentElement.classList.toggle("scrolled", window.scrollY > window.innerHeight * 0.5);
-      if (best === current) return;
-      current = best;
-      slides.forEach(function (sl) { sl.classList.toggle("active", sl === best); });
-      Object.keys(shots).forEach(function (k) { shots[k].classList.toggle("on", k === best.dataset.bg); });
-    }
+    var root = document.documentElement, ticking = false;
+    function update() { ticking = false; root.classList.toggle("scrolled", window.scrollY > window.innerHeight * 0.5); }
     window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
-    window.addEventListener("resize", update);
     update();
   })();
 </script>
