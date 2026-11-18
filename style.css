@@ -525,3 +525,9 @@ html { background: #2b2824; }
 .photo-page #experience .job li { color: #efe8dd; }
 /* Cards stay light and solid so their text reads cleanly over any photo */
 .photo-page :is(.work, .figure, .skills > div) { background: rgba(250, 248, 244, 0.93); text-shadow: none; }
+
+/* Case study pages: article-sized title and summary (the home page keeps its big name) */
+.cs-hero h1 { font-size: clamp(44px, 6vw, 80px); line-height: 1; margin-bottom: 18px; }
+.cs-hero .lede { font-size: clamp(18px, 1.6vw, 21px); }
+.pull { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; padding: clamp(20px, 2.6vw, 30px); margin-top: 36px; }
+.cs-hero.hero { padding-top: clamp(40px, 6vw, 72px); }
