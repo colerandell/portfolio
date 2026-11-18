@@ -201,6 +201,7 @@
       ticking = false;
       var mid = window.innerHeight / 2, best = slides[0];
       slides.forEach(function (sl) { if (sl.getBoundingClientRect().top <= mid) best = sl; });
+      document.documentElement.classList.toggle("scrolled", window.scrollY > window.innerHeight * 0.5);
       if (best === current) return;
       current = best;
       slides.forEach(function (sl) { sl.classList.toggle("active", sl === best); });

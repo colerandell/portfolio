@@ -170,3 +170,21 @@ html.slides-page { scroll-snap-type: y mandatory; background: #1e1c19; }
   .about-text { font-size: 15.5px; }
   .panel p { font-size: 15.5px; }
 }
+
+/* Bare nav: just text over the photo on the first screen; a faint dark strip after that */
+.slides-page nav { top: 0; padding: 0; }
+.slides-page nav .wrap {
+  max-width: none; height: 64px; padding: 0 clamp(18px, 4vw, 44px);
+  background: transparent; border: 0; border-radius: 0; box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  transition: background .6s ease, backdrop-filter .6s ease;
+}
+.slides-page nav .mark { color: #f6f1ea; font-weight: 500; font-size: 17px; letter-spacing: 0; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
+.slides-page nav .mark em { color: #e3cfb3; }
+.slides-page nav ul a {
+  color: rgba(246, 241, 234, 0.82); background: none; padding: 8px 12px;
+  font: 500 11.5px var(--sans); letter-spacing: 0.16em; text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+.slides-page nav ul a:hover { background: none; color: #fff; }
+.slides-page.scrolled nav .wrap { background: rgba(20, 18, 16, 0.38); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
