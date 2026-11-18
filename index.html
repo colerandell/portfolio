@@ -34,8 +34,7 @@
       <h1>Cole <em>Randell</em></h1>
       <p class="lede">Every day is a chance to grow. You just have to take it.</p>
       <div class="btns">
-        <a class="btn solid" href="https://getfirststep.vercel.app/">Try First Step <span class="arr">↗</span></a>
-        <a class="btn" href="first-step.html">Read the case study</a>
+        <a class="btn solid" href="#work">View my work <span class="arr">↓</span></a>
         <a class="btn" href="Cole_Randell_Resume.pdf">Resume</a>
       </div>
     </div>
@@ -266,6 +265,27 @@
   <div class="wrap"><span>© 2026 Cole Randell</span><span>Los Angeles, California</span></div>
 </footer>
 
+<script>
+  // One picture for the whole page: the photo stays fixed, and a cream veil fades in
+  // as you leave the hero, then fades back out so the contact section sits on the photo again.
+  (function () {
+    var root = document.documentElement; root.classList.add("photo-page");
+    var contact = document.getElementById("contact"), ticking = false;
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight;
+      var v = Math.min(1, Math.max(0, window.scrollY / (vh * 0.75)));
+      if (contact) {
+        var top = contact.getBoundingClientRect().top;
+        v = Math.min(v, Math.max(0, Math.min(1, (top - vh * 0.15) / (vh * 0.6))));
+      }
+      root.style.setProperty("--veil", v.toFixed(3));
+    }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
   (function () {
