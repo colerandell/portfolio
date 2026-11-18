@@ -212,3 +212,10 @@ html.slides-page { scroll-snap-type: y mandatory; background: #1e1c19; }
 .panel, .slide.active .panel { opacity: 1; transform: none; transition: none; }
 /* Phones and short screens: normal stacking so tall slides never get covered */
 @media (max-width: 760px), (max-height: 640px) { .slide { position: relative; box-shadow: none; } }
+
+/* ===== Plain native scrolling: no snapping, no stacking, no blur (smooth and fast) ===== */
+html.slides-page { scroll-snap-type: none; }
+.slide { position: relative; box-shadow: none; scroll-snap-align: none; }
+.panel { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(247, 243, 237, 0.95); }
+.panel.dark { background: rgba(24, 21, 18, 0.86); }
+.slides-page.scrolled nav .wrap { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(20, 18, 16, 0.55); }
